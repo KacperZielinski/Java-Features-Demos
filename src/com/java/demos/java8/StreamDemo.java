@@ -15,7 +15,7 @@ class StreamDemo {
     @Test
     void shouldGetStringsWhichStartsWithC()
     {
-        List<String> myList = Arrays.asList("a1", "a2", "b1", "cb2", "ca1");
+        List<String> myList = Arrays.asList("a1", "a2", "b1", "cb2", "ca1", "a");
 
         final long counter = myList.stream()
                 .filter(s -> s.startsWith("c"))
