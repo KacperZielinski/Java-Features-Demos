@@ -3,6 +3,7 @@ package com.java.demos.java8;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.NoSuchElementException;
@@ -17,12 +18,12 @@ class OptionalDemo {
         Runnable r1 = new Runnable() {
 
             @Override public void run() {
-                System.out.println("Runner inner whoohaaa.");
+                assertTrue(true);
             }
         };
         r1.run();
 
-        Runnable r2 = () -> System.out.println("Runned by lambda");
+        Runnable r2 = () -> assertTrue(true);
         r2.run();
     }
 
@@ -82,6 +83,5 @@ class OptionalDemo {
         String value = Optional.ofNullable(nonEmptyString1).orElse(nonEmptyString2);
         assertEquals(value, nonEmptyString1);
     }
-    
 
 }
