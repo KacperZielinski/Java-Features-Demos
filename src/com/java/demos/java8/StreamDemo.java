@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.OptionalDouble;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -38,5 +39,15 @@ class StreamDemo {
         assertEquals(concatenatedList.get(0), myList1.get(0));
         assertEquals(concatenatedList.get(5), myList2.get(0));
         assertEquals(concatenatedList.get(9), myList2.get(4));
+    }
+
+    @Test
+    void shouldCountAverageOnIncrementedValues()
+    {
+        final OptionalDouble average = Arrays.stream(new int[] {2, 2, 3, 1})
+                .map(n -> n + 1)
+                .average();
+
+        average.ifPresent(avg -> assertEquals(avg, 3.0));
     }
 }
