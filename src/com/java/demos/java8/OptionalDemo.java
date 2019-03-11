@@ -119,4 +119,11 @@ class OptionalDemo {
         System.out.println("invoking " + methodName);
         return "Hello";
     }
+
+    @Test
+    void shouldThrowExceptionWhenOrElseThrowUsed() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            Optional.ofNullable(null).orElseThrow(IllegalArgumentException::new);
+        });
+    }
 }
