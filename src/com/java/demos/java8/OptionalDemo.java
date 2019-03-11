@@ -84,4 +84,39 @@ class OptionalDemo {
         assertEquals(value, nonEmptyString1);
     }
 
+    @Test
+    void shouldUseDefaultValuesWhenNullSupplied() {
+        String nullableString = null;
+
+        String opt1 = Optional.ofNullable(nullableString)
+                .orElse(createNewString("orElse"));
+
+        String opt2 = Optional.ofNullable(nullableString)
+                .orElseGet(() -> createNewString("orElseGet"));
+
+        assertEquals(opt1, opt2);
+    }
+
+    /**
+     * PERFORMANCE
+     * Notice that orElse will be ALWAYS invoked! (orElseGet won't be if passed value is present)
+     * However, in both cases value taken from Optional depends on his presence.
+     */
+    @Test
+    void shouldNotUseDefaultValuesWhenNonNullSupplied() {
+        String nullableString = "Java";
+
+        String opt1 = Optional.ofNullable(nullableString)
+                .orElse(createNewString("orElse"));
+
+        String opt2 = Optional.ofNullable(nullableString)
+                .orElseGet(() -> createNewString("orElseGet"));
+
+        assertEquals(opt1, opt2);
+    }
+
+    private String createNewString(String methodName) {
+        System.out.println("invoking " + methodName);
+        return "Hello";
+    }
 }
