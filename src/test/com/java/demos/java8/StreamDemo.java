@@ -1,4 +1,4 @@
-package com.java.demos.java8;
+package test.com.java.demos.java8;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
