@@ -50,4 +50,9 @@ class StreamDemo {
 
         average.ifPresent(avg -> assertEquals(avg, 3.0));
     }
+
+    @Test
+    void soths() {
+
+    }
 }

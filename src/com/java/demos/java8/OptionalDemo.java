@@ -104,12 +104,12 @@ class OptionalDemo {
      */
     @Test
     void shouldNotUseDefaultValuesWhenNonNullSupplied() {
-        String nullableString = "Java";
+        String nonNullableString = "Java";
 
-        String opt1 = Optional.ofNullable(nullableString)
+        String opt1 = Optional.ofNullable(nonNullableString)
                 .orElse(createNewString("orElse"));
 
-        String opt2 = Optional.ofNullable(nullableString)
+        String opt2 = Optional.ofNullable(nonNullableString)
                 .orElseGet(() -> createNewString("orElseGet"));
 
         assertEquals(opt1, opt2);
