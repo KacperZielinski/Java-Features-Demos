@@ -47,7 +47,7 @@ class AutoCloseableTest {
     @Test
     void shouldCloseMultipleEmbeddedResources() {
         try (Scanner scanner = new Scanner(new File("test.txt"));
-             PrintWriter writer = new PrintWriter(new File("test.txt"))) {
+             PrintWriter writer = new PrintWriter("test.txt")) {
 
             while (scanner.hasNext()) {
                 writer.print(scanner.nextLine());
